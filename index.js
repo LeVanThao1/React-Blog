@@ -9,10 +9,10 @@ const {auth} = require('./middlewares/auth')
 const cors = require('cors')
 
 const headers = {
-    // 'allowedHeaders': ['Content-Type', 'Authorization'],
+    'allowedHeaders': ['Content-Type', 'Authorization'],
     'origin': '*',
-    // 'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    // 'preflightContinue': true
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': true
 };
 
 mongoose.connect(
