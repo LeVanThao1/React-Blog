@@ -8,6 +8,13 @@ const config = require('./config/key')
 const {auth} = require('./middlewares/auth')
 const cors = require('cors')
 
+const headers = {
+    // 'allowedHeaders': ['Content-Type', 'Authorization'],
+    'origin': '*',
+    // 'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    // 'preflightContinue': true
+};
+
 mongoose.connect(
         config.mongoURI, 
         {useNewUrlParser: true}
@@ -17,7 +24,7 @@ mongoose.connect(
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(cors())
+app.use(cors(headers))
 
 app.get('/', (req, res, next) => {
     res.json('hello')
