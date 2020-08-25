@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const {User} = require('./models/user')
 const config = require('./config/key')
 const {auth} = require('./middlewares/auth')
+const cors = require('cors')
 
 mongoose.connect(
         config.mongoURI, 
@@ -16,6 +17,7 @@ mongoose.connect(
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(cors())
 
 app.get('/', (req, res, next) => {
     res.json('hello')
